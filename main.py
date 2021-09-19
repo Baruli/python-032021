@@ -1,0 +1,1 @@
+print('Jsem zvedava na dlouhodoby kurz Python_2')
