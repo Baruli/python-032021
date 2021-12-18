@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 
 # 1. Definice problemu: Je voda pitna nebo ne? (na zaklade jejiho chemickeho rozboru)
 
-# r = requests.get("https://raw.githubusercontent.com/lutydlitatova/czechitas-datasets/main/datasets/water-potability.csv")
-# open("water-potability.csv", 'wb').write(r.content)
+r = requests.get("https://raw.githubusercontent.com/lutydlitatova/czechitas-datasets/main/datasets/water-potability.csv")
+open("water-potability.csv", 'wb').write(r.content)
 
 # 2. Data:
 data = pd.read_csv("water-potability.csv")
@@ -46,7 +46,7 @@ print(confusion_matrix(y_true=y_test, y_pred=y_pred))
 # Znamená to, že pro nás bude důležité, abychom raději označili pitnou vodu za nepitnou, než nepitnou za pitnou.
 
 # 6. Uprava modelu
-ks = [1, 3, 5, 7, 9]
+ks = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21]
 for k in ks:
     clf = KNeighborsClassifier(n_neighbors=k)
     clf.fit(X_train, y_train)
@@ -55,7 +55,7 @@ for k in ks:
 
 
 # 7. Zaverecna predikce - pouzita hodnota parametru, ktera dava nejlepsi vysledek pri volani precision().
-clf = KNeighborsClassifier(n_neighbors=9)
+clf = KNeighborsClassifier(n_neighbors=13)
 clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 print('\n', precision_score(y_test, y_pred))
@@ -78,7 +78,7 @@ print(confusion_matrix(y_true=y_test, y_pred=y_pred))
 # Vytvoř graf, který bude pro několik parametrů n_neighbors obsahovat všechny čtyři výsledné metriky,
 # které jsme si v kurzu ukázali: accuracy, precision, recall, f1_score.
 
-ks = [1, 3, 5, 7, 9, 11, 13]
+ks = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21]
 accuracy = []
 precision = []
 recall = []
