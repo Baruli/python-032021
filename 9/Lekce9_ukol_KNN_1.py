@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 
 # 1. Definice problemu: Je voda pitna nebo ne? (na zaklade jejiho chemickeho rozboru)
 
-r = requests.get("https://raw.githubusercontent.com/lutydlitatova/czechitas-datasets/main/datasets/water-potability.csv")
-open("water-potability.csv", 'wb').write(r.content)
+# r = requests.get("https://raw.githubusercontent.com/lutydlitatova/czechitas-datasets/main/datasets/water-potability.csv")
+# open("water-potability.csv", 'wb').write(r.content)
 
 # 2. Data:
 data = pd.read_csv("water-potability.csv")
